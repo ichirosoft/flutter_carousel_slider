@@ -242,7 +242,8 @@ class CarouselSliderState extends State<CarouselSlider>
   }
 
   void onPanDown() {
-    if (widget.options.pauseAutoPlayOnTouch) {
+    if (widget.options.pauseAutoPlayOnTouch ||
+        widget.options.stopAutoPlayOnTouch) {
       clearTimer();
     }
 

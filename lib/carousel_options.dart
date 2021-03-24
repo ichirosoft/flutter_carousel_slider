@@ -93,6 +93,12 @@ class CarouselOptions {
   /// Default to `true`.
   final bool pauseAutoPlayOnTouch;
 
+  /// If `true`, the auto play function will be stopped when user is interacting with
+  /// the carousel, and will NOT be resumed when user finish interacting.
+  /// set [pauseAutoPlayOnTouch] to false required.
+  /// Default to `false`.
+  final bool stopAutoPlayOnTouch;
+
   /// If `true`, the auto play function will be paused when user is calling
   /// pageController's `nextPage` or `previousPage` or `animateToPage` method.
   /// And after the animation complete, the auto play will be resumed.
@@ -134,6 +140,7 @@ class CarouselOptions {
     this.scrollDirection: Axis.horizontal,
     this.pauseAutoPlayOnTouch: true,
     this.pauseAutoPlayOnManualNavigate: true,
+    this.stopAutoPlayOnTouch: false,
     this.pauseAutoPlayInFiniteScroll: false,
     this.pageViewKey,
     this.enlargeStrategy: CenterPageEnlargeStrategy.scale,
