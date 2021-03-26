@@ -38,6 +38,9 @@ class CarouselState {
   /// The callback to set the Reason Carousel changed
   Function(CarouselPageChangedReason) changeMode;
 
+  /// The state of interrupting while autoplay.
+  bool isInterrupting = false;
+
   CarouselState(
       this.options, this.onResetTimer, this.onResumeTimer, this.changeMode);
 }

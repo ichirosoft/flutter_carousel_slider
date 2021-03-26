@@ -152,6 +152,27 @@ class CarouselSliderState extends State<CarouselSlider>
         : null;
   }
 
+  void interrupt() {
+    if (timer != null) {
+      timer?.cancel();
+      timer = null;
+    }
+
+    setState(() {
+      carouselState.isInterrupting = true;
+    });
+  }
+
+  void endInterrupt() {
+    if (timer == null) {
+      timer = getTimer();
+    }
+
+    setState(() {
+      carouselState.isInterrupting = false;
+    });
+  }
+
   void clearTimer() {
     if (timer != null) {
       timer?.cancel();
@@ -160,6 +181,10 @@ class CarouselSliderState extends State<CarouselSlider>
   }
 
   void resumeTimer() {
+    if (carouselState.isInterrupting) {
+      return;
+    }
+
     if (timer == null) {
       timer = getTimer();
     }
